@@ -65,12 +65,12 @@ MRR · Kāʻanapali + Wailea Direct Mail,MRR,Postcard 5,Postcard,2027-09-16,2027
 MRR · Kāʻanapali + Wailea Direct Mail,MRR,Calendar Campaign,Calendar Campaign,2027-11-01,2027-11-30,,,,,Not started,Year-End Planning. Drop right before holiday block-out. Lock in 2028 onboarding priority.
 BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 1 · Reuse: Feb BVR Postcard,Reuse Postcard,2027-01-01,2027-01-31,,,,,Not started,Re-use 2026 Feb BVR postcard. Only 3 words change.
 BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Pocket Campaign,Pocket Campaign,2027-02-01,2027-02-28,+ Waitlist,,,,Not started,Already designed for Maui. Needs BVR messaging. Waitlist is looped into this mailing.
-BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 2 · Reuse: Final Feb Opportunity Postcard,Reuse Postcard,2027-03-01,2027-03-31,,,,,Not started,Re-use final Feb 2026 opportunity postcard. Only 3 words change.
-BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 3 · New,Postcard,2027-04-16,2027-05-15,,,,,Not started,New design.
-BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 4 · New,Postcard,2027-06-16,2027-07-15,,,,,Not started,New design.
-BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 5 · New,Postcard,2027-08-16,2027-09-15,+ Waitlist,,,,Not started,New design. Waitlist is looped into this mailing.
-BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 6 · New,Postcard,2027-10-16,2027-11-15,,,,,Not started,New design.
-BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 7 · New,Postcard,2027-12-01,2027-12-31,,,,,Not started,New design.
+BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 2 · Reuse: Final Feb Opportunity Postcard,Reuse Postcard,2027-02-01,2027-02-28,,,,,Not started,Re-use final Feb 2026 opportunity postcard. Only 3 words change.
+BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 3 · New,Postcard,2027-03-01,2027-03-31,,,,,Not started,New design.
+BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 4 · New,Postcard,2027-05-01,2027-05-31,,,,,Not started,New design.
+BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 5 · New,Postcard,2027-07-01,2027-07-31,+ Waitlist,,,,Not started,New design. Waitlist is looped into this mailing.
+BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 6 · New,Postcard,2027-09-01,2027-09-30,,,,,Not started,New design.
+BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 7 · New,Postcard,2027-11-01,2027-11-30,,,,,Not started,New design.
 BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Waitlist touch · placeholder,Placeholder,2027-05-01,2027-05-31,"Marketing if bandwidth, else Sales",,,,Not started,"Placeholder. Marketing will only do this if there is bandwidth. If not, Sales takes over. Either way, someone needs to make a waitlist touch in May."
 MRR · Realtor Newsletter,MRR,Realtor Newsletter Q1,Newsletter,2027-01-01,2027-03-31,,,,,Not started,Exact send date TBD.
 MRR · Realtor Newsletter,MRR,Realtor Newsletter Q2,Newsletter,2027-04-01,2027-06-30,,,,,Not started,Exact send date TBD.
@@ -155,7 +155,7 @@ function render(items,warn,src){
  if(alerts.length){const l=el('div','lane');const lb=el('div','lab','⚠ Overlap Alert'),sm=el('small',0,'MRR + BVR direct mail');sm.style.cssText='display:block;font-weight:400;color:var(--mute)';lb.append(sm);l.append(lb);
   alerts.forEach(a=>{const c=el('div','chip '+(a.n>=3?'fire':'alert'),(a.n>=3?'🔥 ':'')+MON[a.m]+': '+a.n+' campaigns');c.style.gridColumn=(2*a.m+2)+'/'+(2*a.m+4);l.append(c)});cal.append(l)}
  const lanes=[...new Set(items.map(i=>i.lane))];
- lanes.forEach(ln=>{const its=items.filter(i=>i.lane==ln).sort((a,b)=>a.hs-b.hs||a.he-b.he),ends=[];
+ lanes.forEach(ln=>{const its=items.filter(i=>i.lane==ln).sort((a,b)=>a.hs-b.hs||a.he-b.he||(/pocket/i.test(b.type)-/pocket/i.test(a.type))),ends=[];
   its.forEach(i=>{let r=ends.findIndex(e=>e<i.hs);if(r<0){r=ends.length;ends.push(0)}ends[r]=i.he;i.r=r+1});
   const l=el('div','lane'),lb=el('div','lab',ln);lb.style.gridRow='1 / span '+ends.length;l.append(lb);
   its.forEach(i=>l.append(chip(i,inv.has(i))));cal.append(l)});
