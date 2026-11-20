@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2027 Owner Marketing Calendar</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#faf8f4;--card:#fff;--tx:#1f2a30;--mute:#6b777d;--line:#e3ded4;--tbd:#f1ede4;--must:#b91c1c;
+--green:#2e9e5b;--dgreen:#14532d;--blue:#2f6fdb;--lblue:#9fd3f5;--dblue:#1b2f6e;--q1:#0e7c86;--q2:#3a6ea5;--q3:#c2410c;--q4:#6d4c9f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14191c;--card:#1c2327;--tx:#eef1f2;--mute:#9aa6ab;--line:#2c373c;--tbd:#242d32}}
+:root[data-theme="dark"]{--bg:#14191c;--card:#1c2327;--tx:#eef1f2;--mute:#9aa6ab;--line:#2c373c;--tbd:#242d32}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Georgia,"Times New Roman",serif;padding:28px 20px}
+h1{font-size:28px;margin:0 0 4px}.sub,.note,.cal,.c,.pop,#src{font-family:system-ui,sans-serif}
+.sub{color:var(--mute);font-size:14px;margin-bottom:10px}
+#src{font-size:12px;color:var(--mute);margin-bottom:14px}#src b{color:#d97706}
+#src button{font:inherit;margin-left:8px;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--tx);border-radius:6px;padding:2px 8px}
+.wrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.cal{min-width:1120px}
+.lane{display:grid;grid-template-columns:170px repeat(24,1fr);row-gap:3px;align-items:center;border-top:1px solid var(--line);padding:7px 0}
+.lane.h{border-top:0;padding:2px 0}
+.lab{grid-column:1;font-size:12px;font-weight:600;padding-right:8px}
+.q{color:#fff;text-align:center;font-weight:700;font-size:13px;padding:6px;margin:0 2px;border-radius:6px}
+.m{text-align:center;font-size:12px;color:var(--mute);border-left:1px solid var(--line);padding:3px 0}
+.chip{font-size:11px;line-height:1.25;padding:6px 8px;margin:0 2px;border-radius:6px;color:#fff;font-weight:600;cursor:pointer;position:relative}
+.chip:hover{filter:brightness(1.1);box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.chip.dash{background:var(--tbd);color:var(--mute);border:1px dashed var(--mute);font-weight:500}
+.chip.dark{color:#0b2a4a}
+.chip.ov{outline:2px solid #f59e0b;outline-offset:1px}.chip.must{outline:2px solid var(--must);outline-offset:1px}
+.chip.alert{background:#f59e0b;color:#1f2a30;text-align:center;cursor:default}
+.chip.fire{background:linear-gradient(90deg,#7f1d1d,#dc2626 60%,#ea580c);color:#fff;text-align:center;cursor:default}
+.wl{display:block;margin-top:3px;font-size:10px;font-weight:600;background:rgba(255,255,255,.28);border-radius:4px;padding:1px 4px;width:fit-content}
+.chip.dash small{display:block;font-weight:400;font-size:10px}
+.lk{margin-left:5px;font-size:9px;font-weight:700;background:rgba(0,0,0,.25);color:#fff;border-radius:3px;padding:0 3px;white-space:nowrap}
+h2{font-size:18px;margin:28px 0 10px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.c{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--green);border-radius:8px;padding:12px;font-size:13px;line-height:1.4;cursor:pointer}
+.c.dash{border-left-style:dashed}.c b{display:block;font-size:14px;margin-bottom:2px}.c .d{color:var(--mute);font-size:12px;margin-bottom:4px}
+.note{font-size:12px;color:var(--mute);margin-top:12px;line-height:1.6}
+.sw{display:inline-block;width:11px;height:11px;border-radius:3px;vertical-align:-1px;margin:0 3px 0 8px}
+.ov-back{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.pop{background:var(--card);color:var(--tx);border-radius:12px;padding:20px;max-width:420px;width:100%;box-shadow:0 10px 40px rgba(0,0,0,.35);font-size:14px;line-height:1.5}
+.pop h3{margin:0 0 2px;font-size:18px;font-family:Georgia,serif}.pop .d{color:var(--mute);font-size:12px;margin-bottom:10px}
+.pop .row{margin:3px 0}.pop .row span{color:var(--mute)}
+.pop .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.pop a,.pop button{font:600 13px system-ui,sans-serif;padding:8px 12px;border-radius:8px;text-decoration:none;border:1px solid var(--line);background:var(--card);color:var(--tx);cursor:pointer}
+.pop a.p{background:var(--q2);color:#fff;border-color:var(--q2)}
+</style></head><body>
+<h1>2027 Owner Marketing Calendar</h1>
+<div class="sub">Maui Resort Rentals + Beachview Rentals · Design timing for capacity planning, not final mailing dates · Click any box for links and details</div>
+<div id="src"></div>
+<div class="wrap"><div class="cal" id="cal"></div></div>
+<div class="note" id="legend">Colors: <span class="sw" style="background:var(--green)"></span>MRR postcard<span class="sw" style="background:var(--dgreen)"></span>Calendar campaign<span class="sw" style="background:var(--blue)"></span>BVR postcard<span class="sw" style="background:var(--lblue)"></span>BVR reuse<span class="sw" style="background:var(--dblue)"></span>Pocket campaign<br>Dashed = not yet scheduled or placeholder. <b style="color:#d97706">⚠ Amber outline + Overlap Alert row</b> = an MRR and a BVR direct mail piece land in the same half-month, so one version per brand must be designed at the same time. Overlaps are worked out automatically from the sheet dates. <b>A</b> / <b>SF</b> on a box = it has an Asana / Salesforce link.</div>
+<div id="cards"></div>
+<div class="ov-back" id="ovb"><div class="pop" id="pop"></div></div>
+<script>
+// Paste your Google Sheet "Publish to web" CSV link between the quotes below, then save and upload this file to GitHub.
+const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSNblIFUkhgqjB0r5Ij1BHw_gyZ_7-0Q3PF4qhgY0E6HRcbaZBWaqk8Kv9yixAGdw/pub?gid=59613813&single=true&output=csv";
+const YEAR = 2027;
+const SAMPLE_CSV = `Row,Brand,Name,Type,Start Date,End Date,Tag,Asana Link,Salesforce Link,Owner,Status,Notes
+MRR · Kāʻanapali + Wailea Direct Mail,MRR,Postcard 1,Postcard,2027-01-16,2027-02-15,,,,,Not started,"Statement Shock. 1099 season, 3% card fee, MRR 25% all-in (~19% effective)."
+MRR · Kāʻanapali + Wailea Direct Mail,MRR,Postcard 2,Postcard,2027-03-16,2027-04-15,,,,,Not started,Q1 performance reflection. Offer complimentary Q1 revenue audit.
+MRR · Kāʻanapali + Wailea Direct Mail,MRR,Postcard 3,Postcard,2027-05-16,2027-06-15,,,,,Not started,"Care & Preservation. 5 layers of service, zero-cost OS&E replacement promise."
+MRR · Kāʻanapali + Wailea Direct Mail,MRR,Postcard 4,Postcard,2027-07-16,2027-08-15,MUST DROP,,,,Not started,MUST DROP. Transition playbook. Land 3-4 weeks before Aug 31 contract notice.
+MRR · Kāʻanapali + Wailea Direct Mail,MRR,Postcard 5,Postcard,2027-09-16,2027-10-15,,,,,Not started,Winter calendar pacing. Direct booking power and database reach.
+MRR · Kāʻanapali + Wailea Direct Mail,MRR,Calendar Campaign,Calendar Campaign,2027-11-01,2027-11-30,,,,,Not started,Year-End Planning. Drop right before holiday block-out. Lock in 2028 onboarding priority.
+BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 1 · Reuse: Feb BVR Postcard,Reuse Postcard,2027-01-01,2027-01-31,,,,,Not started,Re-use 2026 Feb BVR postcard. Only 3 words change.
+BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Pocket Campaign,Pocket Campaign,2027-02-01,2027-02-28,+ Waitlist,,,,Not started,Already designed for Maui. Needs BVR messaging. Waitlist is looped into this mailing.
+BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 2 · Reuse: Final Feb Opportunity Postcard,Reuse Postcard,2027-03-01,2027-03-31,,,,,Not started,Re-use final Feb 2026 opportunity postcard. Only 3 words change.
+BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 3 · New,Postcard,2027-04-16,2027-05-15,,,,,Not started,New design.
+BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 4 · New,Postcard,2027-06-16,2027-07-15,,,,,Not started,New design.
+BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 5 · New,Postcard,2027-08-16,2027-09-15,+ Waitlist,,,,Not started,New design. Waitlist is looped into this mailing.
+BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 6 · New,Postcard,2027-10-16,2027-11-15,,,,,Not started,New design.
+BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Postcard 7 · New,Postcard,2027-12-01,2027-12-31,,,,,Not started,New design.
+BVR · Newport Beach Permit Holders & Waitlist Direct Mail,BVR,Waitlist touch · placeholder,Placeholder,2027-05-01,2027-05-31,"Marketing if bandwidth, else Sales",,,,Not started,"Placeholder. Marketing will only do this if there is bandwidth. If not, Sales takes over. Either way, someone needs to make a waitlist touch in May."
+MRR · Realtor Newsletter,MRR,Realtor Newsletter Q1,Newsletter,2027-01-01,2027-03-31,,,,,Not started,Exact send date TBD.
+MRR · Realtor Newsletter,MRR,Realtor Newsletter Q2,Newsletter,2027-04-01,2027-06-30,,,,,Not started,Exact send date TBD.
+MRR · Realtor Newsletter,MRR,Realtor Newsletter Q3,Newsletter,2027-07-01,2027-09-30,,,,,Not started,Exact send date TBD.
+MRR · Realtor Newsletter,MRR,Realtor Newsletter Q4,Newsletter,2027-10-01,2027-12-31,,,,,Not started,Exact send date TBD.
+MRR · Owner Newsletter,MRR,Owner Newsletter Q1,Newsletter,2027-01-01,2027-03-31,,,,,Not started,Exact send date TBD.
+MRR · Owner Newsletter,MRR,Owner Newsletter Q2,Newsletter,2027-04-01,2027-06-30,,,,,Not started,Exact send date TBD.
+MRR · Owner Newsletter,MRR,Owner Newsletter Q3,Newsletter,2027-07-01,2027-09-30,,,,,Not started,Exact send date TBD.
+MRR · Owner Newsletter,MRR,Owner Newsletter Q4,Newsletter,2027-10-01,2027-12-31,,,,,Not started,Exact send date TBD.
+BVR · Owner Newsletter,BVR,Owner Newsletter Q1,Newsletter,2027-01-01,2027-03-31,,,,,Not started,Exact send date TBD.
+BVR · Owner Newsletter,BVR,Owner Newsletter Q2,Newsletter,2027-04-01,2027-06-30,,,,,Not started,Exact send date TBD.
+BVR · Owner Newsletter,BVR,Owner Newsletter Q3,Newsletter,2027-07-01,2027-09-30,,,,,Not started,Exact send date TBD.
+BVR · Owner Newsletter,BVR,Owner Newsletter Q4,Newsletter,2027-10-01,2027-12-31,,,,,Not started,Exact send date TBD.
+MRR · Owner Insights Blog,MRR,Post 1,Blog Post,2027-01-01,2027-02-15,,,,,Not started,Placed in the first or second half of the quarter. Exact publish date TBD.
+MRR · Owner Insights Blog,MRR,Post 2,Blog Post,2027-02-16,2027-03-31,,,,,Not started,Placed in the first or second half of the quarter. Exact publish date TBD.
+MRR · Owner Insights Blog,MRR,Post 3,Blog Post,2027-04-01,2027-05-15,,,,,Not started,Placed in the first or second half of the quarter. Exact publish date TBD.
+MRR · Owner Insights Blog,MRR,Post 4,Blog Post,2027-05-16,2027-06-30,,,,,Not started,Placed in the first or second half of the quarter. Exact publish date TBD.
+MRR · Owner Insights Blog,MRR,Post 5,Blog Post,2027-07-01,2027-08-15,,,,,Not started,Placed in the first or second half of the quarter. Exact publish date TBD.
+MRR · Owner Insights Blog,MRR,Post 6,Blog Post,2027-08-16,2027-09-30,,,,,Not started,Placed in the first or second half of the quarter. Exact publish date TBD.
+MRR · Owner Insights Blog,MRR,Post 7,Blog Post,2027-10-01,2027-11-15,,,,,Not started,Placed in the first or second half of the quarter. Exact publish date TBD.
+MRR · Owner Insights Blog,MRR,Post 8,Blog Post,2027-11-16,2027-12-31,,,,,Not started,Placed in the first or second half of the quarter. Exact publish date TBD.
+BVR · Owner Insights Blog,BVR,Post 1,Blog Post,2027-01-01,2027-02-15,,,,,Not started,Placed in the first or second half of the quarter. Exact publish date TBD.
+BVR · Owner Insights Blog,BVR,Post 2,Blog Post,2027-02-16,2027-03-31,,,,,Not started,Placed in the first or second half of the quarter. Exact publish date TBD.
+BVR · Owner Insights Blog,BVR,Post 3,Blog Post,2027-04-01,2027-05-15,,,,,Not started,Placed in the first or second half of the quarter. Exact publish date TBD.
+BVR · Owner Insights Blog,BVR,Post 4,Blog Post,2027-05-16,2027-06-30,,,,,Not started,Placed in the first or second half of the quarter. Exact publish date TBD.
+BVR · Owner Insights Blog,BVR,Post 5,Blog Post,2027-07-01,2027-08-15,,,,,Not started,Placed in the first or second half of the quarter. Exact publish date TBD.
+BVR · Owner Insights Blog,BVR,Post 6,Blog Post,2027-08-16,2027-09-30,,,,,Not started,Placed in the first or second half of the quarter. Exact publish date TBD.
+BVR · Owner Insights Blog,BVR,Post 7,Blog Post,2027-10-01,2027-11-15,,,,,Not started,Placed in the first or second half of the quarter. Exact publish date TBD.
+BVR · Owner Insights Blog,BVR,Post 8,Blog Post,2027-11-16,2027-12-31,,,,,Not started,Placed in the first or second half of the quarter. Exact publish date TBD.
+BVR Events,BVR,Current Owner Event,Event,2027-03-01,2027-05-31,,,,,Not started,Spring. Date TBD.
+BVR Events,BVR,Realtor Event,Event,2027-09-01,2027-11-30,,,,,Not started,Fall. Date TBD.
+`;
+const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const FULL=["January","February","March","April","May","June","July","August","September","October","November","December"];
+function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+function parseCSV(t){const R=[];let r=[],f='',q=false;for(let i=0;i<t.length;i++){const c=t[i];
+ if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
+ else if(c=='"')q=true;else if(c==','){r.push(f);f=''}
+ else if(c=='\n'||c=='\r'){if(c=='\r'&&t[i+1]=='\n')i++;r.push(f);f='';R.push(r);r=[]}else f+=c}
+ if(f!==''||r.length){r.push(f);R.push(r)}return R.filter(x=>x.some(v=>v.trim()!==''))}
+function pd(s){s=(s||'').trim();let m;
+ if(m=s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/))return new Date(+m[1],m[2]-1,+m[3]);
+ if(m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/))return new Date(+m[3],m[1]-1,+m[2]);
+ const d=new Date(s);return isNaN(d)?null:d}
+const hi=d=>d.getMonth()*2+(d.getDate()>=16?1:0);
+const safe=u=>/^https?:\/\//i.test(u)?u:'';
+function build(csv){const rows=parseCSV(csv),H=rows[0].map(h=>h.trim().toLowerCase());
+ const g=(r,k)=>{const i=H.indexOf(k);return i<0?'':(r[i]||'').trim()};const items=[],warn=[];
+ rows.slice(1).forEach(r=>{const name=g(r,'name'),lane=g(r,'row');if(!name||!lane)return;
+  const s=pd(g(r,'start date')),e=pd(g(r,'end date'));
+  if(!s||!e||s.getFullYear()!=YEAR||e.getFullYear()!=YEAR){warn.push(name);return}
+  const hs=hi(s);items.push({lane,brand:g(r,'brand').toUpperCase(),name,type:g(r,'type'),hs,he:Math.max(hs,hi(e)),
+   tag:g(r,'tag'),asana:safe(g(r,'asana link')),sf:safe(g(r,'salesforce link')),owner:g(r,'owner'),status:g(r,'status'),notes:g(r,'notes')})});
+ return{items,warn}}
+function dateLabel(hs,he){const sm=hs>>1,em=he>>1,sFirst=hs%2==0,eSecond=he%2==1,y=' '+YEAR;
+ if(sFirst&&eSecond)return(sm==em?FULL[sm]:MON[sm]+' – '+MON[em])+y;
+ const a=(sFirst?'Early ':'Late ')+MON[sm];if(hs==he)return a+y;
+ const b=(he%2==0?'Early ':'Late ')+MON[em];return a+(em==sm+1&&!sFirst&&!eSecond?' / ':' – ')+b+y}
+function look(it){const t=it.type.toLowerCase();
+ if(t=='postcard')return{bg:it.brand=='BVR'?'var(--blue)':'var(--green)'};
+ if(t=='reuse postcard')return{bg:'var(--lblue)',dark:1};
+ if(t=='calendar campaign')return{bg:'var(--dgreen)'};
+ if(t=='pocket campaign')return{bg:'var(--dblue)'};
+ return{dash:1}}
+function overlaps(items){const dm=items.filter(i=>/direct mail/i.test(i.lane)&&!/placeholder/i.test(i.type)),alerts=[],inv=new Set();
+ for(let m=0;m<12;m++){const set=new Set();
+  for(const h of[2*m,2*m+1]){const act=dm.filter(i=>i.hs<=h&&h<=i.he);if(new Set(act.map(i=>i.brand)).size>1)act.forEach(i=>set.add(i))}
+  if(set.size){alerts.push({m,n:set.size});set.forEach(i=>inv.add(i))}}
+ return{alerts,inv}}
+function openItem(it){const links=[];if(it.asana)links.push(['Open Asana task',it.asana]);if(it.sf)links.push(['Open Salesforce campaign',it.sf]);
+ if(links.length==1){window.open(links[0][1],'_blank','noopener');return}
+ const p=$('#pop');p.replaceChildren(el('h3',0,it.name),el('div','d',it.lane+' · '+dateLabel(it.hs,it.he)));
+ [['Type',it.type],['Status',it.status],['Owner',it.owner],['Tag',it.tag],['Notes',it.notes]].forEach(([k,v])=>{if(v){const r=el('div','row');r.append(el('span',0,k+': '),document.createTextNode(v));p.append(r)}});
+ const b=el('div','btns');links.forEach(([t,u],i)=>{const a=el('a',i?'':'p',t+' ↗');a.href=u;a.target='_blank';a.rel='noopener';b.append(a)});
+ if(!links.length)b.append(el('span',0,'No Asana or Salesforce link added yet.'));
+ const x=el('button',0,'Close');x.onclick=()=>$('#ovb').style.display='none';b.append(x);p.append(b);$('#ovb').style.display='flex'}
+const $=s=>document.querySelector(s);
+function render(items,warn,src){
+ const cal=$('#cal');cal.replaceChildren();
+ const qr=el('div','lane h');qr.append(el('div','lab'));[['Q1','--q1'],['Q2','--q2'],['Q3','--q3'],['Q4','--q4']].forEach(([t,c],i)=>{const q=el('div','q',t);q.style.gridColumn=(2+6*i)+'/'+(8+6*i);q.style.background='var('+c+')';qr.append(q)});
+ const mr=el('div','lane h');mr.append(el('div','lab'));MON.forEach(m=>{const d=el('div','m',m);d.style.gridColumn='span 2';mr.append(d)});cal.append(qr,mr);
+ const {alerts,inv}=overlaps(items);
+ if(alerts.length){const l=el('div','lane');const lb=el('div','lab','⚠ Overlap Alert'),sm=el('small',0,'MRR + BVR direct mail');sm.style.cssText='display:block;font-weight:400;color:var(--mute)';lb.append(sm);l.append(lb);
+  alerts.forEach(a=>{const c=el('div','chip '+(a.n>=3?'fire':'alert'),(a.n>=3?'🔥 ':'')+MON[a.m]+': '+a.n+' campaigns');c.style.gridColumn=(2*a.m+2)+'/'+(2*a.m+4);l.append(c)});cal.append(l)}
+ const lanes=[...new Set(items.map(i=>i.lane))];
+ lanes.forEach(ln=>{const its=items.filter(i=>i.lane==ln).sort((a,b)=>a.hs-b.hs||a.he-b.he),ends=[];
+  its.forEach(i=>{let r=ends.findIndex(e=>e<i.hs);if(r<0){r=ends.length;ends.push(0)}ends[r]=i.he;i.r=r+1});
+  const l=el('div','lane'),lb=el('div','lab',ln);lb.style.gridRow='1 / span '+ends.length;l.append(lb);
+  its.forEach(i=>l.append(chip(i,inv.has(i))));cal.append(l)});
+ const cards=$('#cards');cards.replaceChildren();
+ lanes.filter(l=>/direct mail/i.test(l)).forEach(ln=>{cards.append(el('h2',0,ln+': Campaign Detail'));const g=el('div','cards');
+  items.filter(i=>i.lane==ln).sort((a,b)=>a.hs-b.hs).forEach(i=>{const lk=look(i),c=el('div','c'+(lk.dash?' dash':''));
+   c.style.borderLeftColor=lk.bg||'var(--mute)';c.append(el('b',0,i.name),el('div','d',dateLabel(i.hs,i.he)));
+   if(i.notes)c.append(document.createTextNode(i.notes));if(i.tag){const t=el('div','d','Tag: '+i.tag);t.style.marginTop='4px';c.append(t)}
+   const ln2=[i.asana&&'Asana',i.sf&&'Salesforce'].filter(Boolean);if(ln2.length){const t=el('div','d','Links: '+ln2.join(' + '));c.append(t)}
+   c.onclick=()=>openItem(i);g.append(c)});cards.append(g)});
+ const s=$('#src');s.replaceChildren(document.createTextNode(src+' '));
+ if(warn.length){const w=el('b',0,'Skipped (check dates are in '+YEAR+'): '+warn.join(', ')+'. ');s.append(w)}
+ const b=el('button',0,'Reload');b.onclick=()=>location.reload();s.append(b)}
+function chip(i,ov){const lk=look(i),c=el('div','chip');c.style.gridColumn=(i.hs+2)+'/'+(i.he+3);c.style.gridRow=i.r;
+ if(lk.dash){c.classList.add('dash')}else{c.style.background=lk.bg;if(lk.dark)c.classList.add('dark')}
+ if(ov)c.classList.add('ov');if(/must drop/i.test(i.tag))c.classList.add('must');
+ c.append(document.createTextNode(i.name));
+ if(i.tag){if(lk.dash)c.append(el('small',0,i.tag));else c.append(el('span','wl',i.tag))}
+ const l=[i.asana&&'A',i.sf&&'SF'].filter(Boolean).join(' ');if(l)c.append(el('span','lk',l));
+ c.title=dateLabel(i.hs,i.he)+(i.notes?' · '+i.notes:'');c.onclick=()=>openItem(i);return c}
+async function init(){let csv=SAMPLE_CSV,src='Showing sample data. Paste your Google Sheet link into SHEET_CSV_URL to make this live.';
+ let isSample=true;
+ if(SHEET_CSV_URL){try{const r=await fetch(SHEET_CSV_URL+(SHEET_CSV_URL.includes('?')?'&':'?')+'t='+Date.now(),{cache:'no-store'});if(!r.ok)throw 0;csv=await r.text();isSample=false;src='Live from Google Sheet · loaded '+new Date().toLocaleString()+'.'}
+  catch(e){src='Could not read the Google Sheet, so sample data is shown. Check the link and that the sheet is published to the web.'}}
+ const {items,warn}=build(csv);render(items,warn,src);
+}
+$('#ovb').onclick=e=>{if(e.target.id=='ovb')e.target.style.display='none'};
+document.onkeydown=e=>{if(e.key=='Escape')$('#ovb').style.display='none'};
+init();
+</script></body></html>
