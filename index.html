@@ -141,7 +141,6 @@ function overlaps(items){const dm=items.filter(i=>/direct mail/i.test(i.lane)&&!
   if(set.size){alerts.push({m,n:set.size});set.forEach(i=>inv.add(i))}}
  return{alerts,inv}}
 function openItem(it){const links=[];if(it.asana)links.push(['Open Asana task',it.asana]);if(it.sf)links.push(['Open Salesforce campaign',it.sf]);
- if(links.length==1){window.open(links[0][1],'_blank','noopener');return}
  const p=$('#pop');p.replaceChildren(el('h3',0,it.name),el('div','d',it.lane+' · '+dateLabel(it.hs,it.he)));
  [['Type',it.type],['Status',it.status],['Owner',it.owner],['Tag',it.tag],['Notes',it.notes]].forEach(([k,v])=>{if(v){const r=el('div','row');r.append(el('span',0,k+': '),document.createTextNode(v));p.append(r)}});
  const b=el('div','btns');links.forEach(([t,u],i)=>{const a=el('a',i?'':'p',t+' ↗');a.href=u;a.target='_blank';a.rel='noopener';b.append(a)});
